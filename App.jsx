@@ -8,7 +8,7 @@ const PROJECTS = [
     version: 'v0.9',
     status: 'active',
     progress: 65,
-    desc: 'AI-powered personal finance copilot. Runs discovery scans, syncs investment data, surfaces weekly reviews, and tracks portfolio activity across accounts — all locally orchestrated.',
+    desc: 'AI-powered personal finance copilot. Runs discovery scans, syncs investment data, surfaces weekly reviews, and tracks portfolio activity across accounts. Locally orchestrated.',
     features: ['AI · LLM', 'Finance data', 'Alerts', 'Weekly digest'],
     signal: {
       openPRs: 72,
@@ -226,49 +226,6 @@ const App = () => {
           </div>
         </section>
 
-        <section id="contact" className="cockpit-section">
-          <div className="section-head">
-            <h2>Contact</h2>
-            <div className="meta">available for select freelance · atlanta</div>
-          </div>
-          <div className="enterprise-context">
-            I take on a small number of freelance engagements at a time — modern web builds,
-            AI integrations, internal tooling, and MVP work. If you have something worth building,{' '}
-            <strong>reach out</strong>.
-          </div>
-          <div className="work-list">
-            <div className="work-row">
-              <span className="work-category">Email</span>
-              <div>
-                <a href="mailto:joebrashear100@gmail.com" className="work-title"
-                   style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-                  joebrashear100@gmail.com
-                </a>
-              </div>
-            </div>
-            <div className="work-row">
-              <span className="work-category">LinkedIn</span>
-              <div>
-                <a href="https://www.linkedin.com/in/joe-brashear-delta/" target="_blank"
-                   rel="noreferrer" className="work-title"
-                   style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-                  linkedin.com/in/joe-brashear-delta
-                </a>
-              </div>
-            </div>
-            <div className="work-row">
-              <span className="work-category">GitHub</span>
-              <div>
-                <a href="https://github.com/joebrashear100" target="_blank"
-                   rel="noreferrer" className="work-title"
-                   style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-                  github.com/joebrashear100
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="enterprise" className="cockpit-section">
           <div className="section-head">
             <h2>Enterprise work</h2>
@@ -286,12 +243,26 @@ const App = () => {
         </section>
       </div>
 
-      <Footer year={2026}
-              links={[
-                { label: 'github', href: 'https://github.com/joebrashear100' },
-                { label: 'linkedin', href: 'https://www.linkedin.com/in/joe-brashear-delta/' },
-                { label: 'email', href: 'mailto:joebrashear100@gmail.com' },
-              ]} />
+      <section id="contact" className="cockpit-section" style={{ borderTop: '0.5px solid var(--border)', padding: '56px 0' }}>
+        <div className="container">
+          <div className="section-head">
+            <h2>Contact</h2>
+            <div className="meta">available for select freelance · atlanta</div>
+          </div>
+          <div className="enterprise-context">
+            I take on a small number of freelance engagements at a time. Modern web builds,
+            AI integrations, internal tooling, and MVP work. If you have something worth building,{' '}
+            <strong>reach out.</strong>
+          </div>
+          <div className="cta-row" style={{ marginTop: '24px' }}>
+            <a href="mailto:joebrashear100@gmail.com" className="btn">email me</a>
+            <a href="https://www.linkedin.com/in/joe-brashear-delta/" target="_blank" rel="noreferrer" className="btn btn-ghost">linkedin ↗</a>
+            <a href="https://github.com/joebrashear100" target="_blank" rel="noreferrer" className="btn btn-ghost">github ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <Footer year={2026} links={[]} />
     </>
   );
 };

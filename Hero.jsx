@@ -29,7 +29,7 @@ const Hero = ({ awards = [], onProjects, onContact }) => (
       path="~/joe"
       lines={[
         { type: 'cmd', text: 'whoami' },
-        { type: 'out', text: 'joe — full-stack, AI & automation' },
+        { type: 'out', text: 'joe / full-stack, AI & automation' },
         { type: 'cmd', text: 'stack' },
         { type: 'out', text: 'next.js · react · typescript' },
         { type: 'out', text: 'swift · power platform · aws' },
