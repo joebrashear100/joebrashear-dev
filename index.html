@@ -379,6 +379,61 @@
   .np-title { font-size: 12.5px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .np-sub { font-size: 11px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+  /* HEATMAP */
+  .heatmap-wrap {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .heatmap-grid {
+    display: grid;
+    grid-template-rows: repeat(7, 11px);
+    grid-auto-flow: column;
+    grid-auto-columns: 11px;
+    gap: 3px;
+    width: max-content;
+  }
+  .hm-cell {
+    width: 11px; height: 11px;
+    border-radius: 2px;
+    background: var(--surface-2);
+    transition: opacity 0.15s;
+  }
+  .hm-cell:hover { opacity: 0.7; }
+  .hm-1 { background: var(--accent); opacity: 0.25; }
+  .hm-2 { background: var(--accent); opacity: 0.5; }
+  .hm-3 { background: var(--accent); opacity: 0.75; }
+  .hm-4 { background: var(--accent); opacity: 1; }
+  .hm-legend {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 10px;
+    color: var(--text-tertiary); margin-top: 10px;
+  }
+  .hm-legend .hm-cell { flex-shrink: 0; }
+
+  /* PR ROW */
+  .pr-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 18px; align-items: center;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .pr-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .pr-repo {
+    font-family: var(--mono); font-size: 10.5px;
+    color: var(--text-tertiary);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .pr-title {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-secondary);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .pr-status {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--live); white-space: nowrap;
+  }
+
   /* FOOTER */
   footer {
     padding: 48px 0 56px;
@@ -436,17 +491,13 @@
           <span class="star">★</span>
           <span>2024 ENTERPRISE AUTOMATION MVP</span>
         </div>
-        <div class="award-badge">
-          <span class="star">★</span>
-          <span>MICROSOFT MVP</span>
-        </div>
       </div>
       <h1>
         Full-stack developer<br />
         <span class="muted">shipping at altitude.</span>
       </h1>
       <p class="lede">
-        I build <strong>modern web</strong> and <strong>AI &amp; automation</strong> systems. Solution Architect at a Fortune 100 airline by day, indie product developer by night. Available for select freelance work from Atlanta.
+        I build <strong>modern web</strong> and <strong>AI &amp; automation</strong> systems. Technical Lead &amp; SME at a Fortune 100 airline. Shipping indie products on the side. Available for select freelance work from Atlanta.
       </p>
       <div class="cta-row">
         <a href="#projects" class="btn">see projects</a>
@@ -647,14 +698,41 @@
     </div>
     <div class="signal-grid">
 
+      <div class="panel" style="grid-column: span 3;">
+        <div class="panel-head">
+          <span class="panel-head-label">// open pull requests</span>
+          <span class="panel-head-meta"><span class="pulse"></span><span class="live-text">10 open</span></span>
+        </div>
+        <div class="pr-row">
+          <span class="pr-repo">Talk2Claude</span>
+          <span class="pr-title">chore: scaffold Phase 0 repo foundation</span>
+          <span class="pr-status">● draft</span>
+        </div>
+        <div class="pr-row">
+          <span class="pr-repo">projectmanagement</span>
+          <span class="pr-title">Add Copilot Studio build brief for Contract Central agent</span>
+          <span class="pr-status">● open</span>
+        </div>
+        <div class="pr-row">
+          <span class="pr-repo">CopilotFin</span>
+          <span class="pr-title">Replace ntfy with Twilio SMS for all alert notifications</span>
+          <span class="pr-status">● draft</span>
+        </div>
+        <div class="pr-row">
+          <span class="pr-repo">grocery-deals</span>
+          <span class="pr-title">Expand to 12 stores + unit-price parsing, loyalty tags, store-grouped digest</span>
+          <span class="pr-status">● draft</span>
+        </div>
+      </div>
+
       <div class="panel">
         <div class="panel-head">
           <span class="panel-head-label">// activity</span>
           <span class="panel-head-meta">7d</span>
         </div>
-        <div class="stat-big">47</div>
-        <div class="stat-sub">commits across 6 repos</div>
-        <div class="stat-trend">↑ 12 vs last week</div>
+        <div class="stat-big">107</div>
+        <div class="stat-sub">commits across 4 repos</div>
+        <div class="stat-trend">CopilotFin · nimbus-trade · delegate-call-agent · active-initiatives</div>
       </div>
 
       <div class="panel">
@@ -662,59 +740,58 @@
           <span class="panel-head-label">// last deploy</span>
           <span class="panel-head-meta"><span class="pulse"></span><span class="live-text">passing</span></span>
         </div>
-        <div class="stat-big">2h</div>
-        <div class="stat-sub">cockpit.joe.dev</div>
-        <div class="stat-trend">build #247</div>
+        <div class="stat-big">17h</div>
+        <div class="stat-sub">joebrashear.dev</div>
+        <div class="stat-trend">S3 + CloudFront · us-east-1</div>
       </div>
 
       <div class="panel">
         <div class="panel-head">
           <span class="panel-head-label">// now playing</span>
-          <span class="panel-head-meta"><span class="pulse"></span><span class="live-text">live</span></span>
+          <span class="panel-head-meta"><span class="pulse"></span><span class="live-text">spotify</span></span>
         </div>
         <div class="now-playing-item">
           <div class="np-icon">♪</div>
           <div class="np-meta">
-            <div class="np-title">Sweet Life</div>
-            <div class="np-sub">Frank Ocean</div>
+            <div class="np-title">You Were Right</div>
+            <div class="np-sub">RÜFÜS DU SOL</div>
           </div>
         </div>
         <div class="now-playing-item">
-          <div class="np-icon">▶</div>
+          <div class="np-icon">♪</div>
           <div class="np-meta">
-            <div class="np-title">Designing Data-Intensive Apps</div>
-            <div class="np-sub">Kleppmann · ch. 7</div>
+            <div class="np-title">Sundream</div>
+            <div class="np-sub">RÜFÜS DU SOL</div>
           </div>
         </div>
       </div>
 
-      <div class="panel" style="grid-column: span 3;">
-        <div class="panel-head">
-          <span class="panel-head-label">// recent commits</span>
-          <span class="panel-head-meta">github.com/joe</span>
-        </div>
-        <div class="commit-row">
-          <span class="sha">a3f2c</span>
-          <span class="msg">refactor: split lifecycle hooks for first-paint perf</span>
-          <span style="color: var(--text-tertiary);">2h</span>
-        </div>
-        <div class="commit-row">
-          <span class="sha">9b1e8</span>
-          <span class="msg">feat: sankey color system for Furg</span>
-          <span style="color: var(--text-tertiary);">1d</span>
-        </div>
-        <div class="commit-row">
-          <span class="sha">c7d04</span>
-          <span class="msg">fix: connector schema cache invalidation</span>
-          <span style="color: var(--text-tertiary);">2d</span>
-        </div>
-        <div class="commit-row">
-          <span class="sha">e5a91</span>
-          <span class="msg">init: cockpit portfolio scaffold</span>
-          <span style="color: var(--text-tertiary);">4d</span>
+    </div>
+  </section>
+
+</div>
+
+  <!-- HEATMAP -->
+  <section id="activity" style="padding-bottom: 40px;">
+    <div class="section-head">
+      <h2>Contributions</h2>
+      <div class="meta">feb – may 2026 · tracked repos</div>
+    </div>
+    <div class="panel">
+      <div class="heatmap-wrap">
+        <div class="heatmap-grid">
+<div class="hm-cell hm-0" title="2026-02-01: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-02: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-03: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-04: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-05: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-06: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-07: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-08: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-09: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-10: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-11: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-12: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-13: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-14: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-15: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-16: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-17: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-18: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-19: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-20: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-21: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-22: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-23: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-24: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-25: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-26: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-27: 0 commits"></div><div class="hm-cell hm-0" title="2026-02-28: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-01: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-02: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-03: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-04: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-05: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-06: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-07: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-08: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-09: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-10: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-11: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-12: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-13: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-14: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-15: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-16: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-17: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-18: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-19: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-20: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-21: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-22: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-23: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-24: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-25: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-26: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-27: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-28: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-29: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-30: 0 commits"></div><div class="hm-cell hm-0" title="2026-03-31: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-01: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-02: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-03: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-04: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-05: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-06: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-07: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-08: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-09: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-10: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-11: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-12: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-13: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-14: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-15: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-16: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-17: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-18: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-19: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-20: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-21: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-22: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-23: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-24: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-25: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-26: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-27: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-28: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-29: 0 commits"></div><div class="hm-cell hm-0" title="2026-04-30: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-01: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-02: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-03: 0 commits"></div><div class="hm-cell hm-1" title="2026-05-04: 1 commit"></div><div class="hm-cell hm-1" title="2026-05-05: 1 commit"></div><div class="hm-cell hm-3" title="2026-05-06: 15 commits"></div><div class="hm-cell hm-1" title="2026-05-07: 2 commits"></div><div class="hm-cell hm-2" title="2026-05-08: 5 commits"></div><div class="hm-cell hm-2" title="2026-05-09: 4 commits"></div><div class="hm-cell hm-1" title="2026-05-10: 3 commits"></div><div class="hm-cell hm-4" title="2026-05-11: 45 commits"></div><div class="hm-cell hm-2" title="2026-05-12: 10 commits"></div><div class="hm-cell hm-2" title="2026-05-13: 10 commits"></div><div class="hm-cell hm-3" title="2026-05-14: 13 commits"></div><div class="hm-cell hm-3" title="2026-05-15: 24 commits"></div><div class="hm-cell hm-1" title="2026-05-16: 2 commits"></div><div class="hm-cell hm-1" title="2026-05-17: 3 commits"></div><div class="hm-cell hm-0" title="2026-05-18: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-19: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-20: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-21: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-22: 0 commits"></div><div class="hm-cell hm-0" title="2026-05-23: 0 commits"></div>
         </div>
       </div>
-
+      <div class="hm-legend">
+        <span>less</span>
+        <div class="hm-cell hm-0"></div>
+        <div class="hm-cell hm-1"></div>
+        <div class="hm-cell hm-2"></div>
+        <div class="hm-cell hm-3"></div>
+        <div class="hm-cell hm-4"></div>
+        <span>more</span>
+      </div>
     </div>
   </section>
 
