@@ -136,7 +136,9 @@ const TOTALS = PROJECTS.reduce((acc, p) => {
 }, { commits: 0, openPRs: 0, activeRepos: 0 });
 
 const App = () => {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState(
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
   const [active, setActive] = React.useState('projects');
 
   React.useEffect(() => {
